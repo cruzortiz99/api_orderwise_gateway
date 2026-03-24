@@ -9,6 +9,7 @@ from fastapi import FastAPI, Request, Response
 
 dotenv.load_dotenv(dotenv_path=Path(__file__).parent / ".env")
 API_BASE_URL = os.environ.get("API_BASE_URL", "http://localhost")
+API_PORT = int(os.environ.get("API_PORT", 8000))
 
 APP = FastAPI()
 
@@ -95,7 +96,7 @@ with open("services.json") as f:
 
 
 def main():
-    uvicorn.run("main:APP", port=8000, log_level="info", reload=True)
+    uvicorn.run("main:APP", port=API_PORT, log_level="info", reload=True)
 
 
 if __name__ == "__main__":
