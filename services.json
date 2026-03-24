@@ -1,0 +1,114 @@
+{
+  "mvp": {
+    "routes": [
+      { "path": "/", "method": "GET" },
+      { "path": "/_ignition/execute-solution", "method": "POST" },
+      { "path": "/_ignition/health-check", "method": "GET" },
+      { "path": "/_ignition/update-config", "method": "POST" },
+      { "path": "/admin-dashboard/companies-list", "method": "GET" },
+      { "path": "/admin-dashboard/company/{id}", "method": "GET" },
+      { "path": "/admin-dashboard/recent-companies", "method": "GET" },
+      { "path": "/admin-dashboard/recent-subscriptions", "method": "GET" },
+      { "path": "/admin-dashboard/recent-users", "method": "GET" },
+      { "path": "/admin-dashboard/stats", "method": "GET" },
+      { "path": "/admin-dashboard/subscription/{id}", "method": "GET" },
+      { "path": "/admin-dashboard/subscriptions-list", "method": "GET" },
+      { "path": "/admin-dashboard/user/{id}", "method": "GET" },
+      { "path": "/admin-dashboard/users-list", "method": "GET" },
+      { "path": "/admin/dashboard", "method": "GET" },
+      { "path": "/auth/social/link", "method": "POST" },
+      { "path": "/auth/social/status", "method": "GET" },
+      { "path": "/auth/social/unlink", "method": "POST" },
+      { "path": "/authentication/assign-demo", "method": "POST" },
+      { "path": "/authentication/facebook", "method": "POST" },
+      { "path": "/authentication/google", "method": "POST" },
+      { "path": "/authentication/login", "method": "POST" },
+      { "path": "/authentication/logout", "method": "POST" },
+      { "path": "/authentication/refresh", "method": "POST" },
+      { "path": "/authentication/register", "method": "POST" },
+      { "path": "/authentication/register/google", "method": "POST" },
+      { "path": "/authentication/setup-company", "method": "POST" },
+      { "path": "/billing-multiple", "method": "POST" },
+      { "path": "/branch-office-stock-products", "method": "GET" },
+      { "path": "/branch-office-stock-products", "method": "POST" },
+      { "path": "/branch-office-stock-products/create", "method": "GET" },
+      {
+        "path": "/branch-office-stock-products/{branch_office_stock_product}",
+        "method": "GET"
+      },
+      {
+        "path": "/branch-office-stock-products/{branch_office_stock_product}",
+        "method": "PUT"
+      },
+      {
+        "path": "/branch-office-stock-products/{branch_office_stock_product}",
+        "method": "DELETE"
+      },
+      {
+        "path": "/branch-office-stock-products/{branch_office_stock_product}/edit",
+        "method": "GET"
+      }
+    ]
+  },
+  "ia-chat": {
+    "routes": [
+      { "path": "/ai-chats", "method": "GET" },
+      { "path": "/ai-chats", "method": "POST" },
+      { "path": "/ai-chats/generate-product-images", "method": "POST" },
+      {
+        "path": "/ai-chats/{id}",
+        "method": "GET",
+        "docs": {
+          "description": "Get a specific AI chat by its ID.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The unique identifier of the AI chat to retrieve."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/ai-chats/{id}",
+        "method": "DELETE",
+        "docs": {
+          "description": "Get a specific AI chat by its ID.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The unique identifier of the AI chat to retrieve."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/ai-chats/{id}/messages",
+        "method": "POST",
+        "docs": {
+          "description": "Get a specific AI chat by its ID.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The unique identifier of the AI chat to retrieve."
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
