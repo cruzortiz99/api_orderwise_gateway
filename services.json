@@ -1,5 +1,6 @@
 {
   "mvp": {
+    "base_url": "http://mvp:8000",
     "routes": [
       {
         "path": "/",
@@ -10392,6 +10393,7 @@
     ]
   },
   "ia-chat": {
+    "base_url": "http://ai_chat:8000",
     "routes": [
       {
         "path": "/test/",

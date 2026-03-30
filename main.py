@@ -17,6 +17,7 @@ with open("services.json") as f:
     services: dict = json.load(f)
 
     for service_name, service in services.items():
+        service_base = service.get("base_url", API_BASE_URL)
         for route in service["routes"]:
             path = route["path"]
             method = route["method"].lower()
@@ -26,7 +27,7 @@ with open("services.json") as f:
                     match request.method.lower():
                         case "get":
                             resp = await client.get(
-                                f"{API_BASE_URL}{request.url.path}",
+                                f"{service_base}{request.url.path}",
                                 headers=request.headers.raw,
                                 params=request.query_params,
                             )
@@ -39,7 +40,7 @@ with open("services.json") as f:
                         case "post" | "put":
                             resp = await client.request(
                                 request.method.upper(),
-                                f"{API_BASE_URL}{request.url.path}",
+                                f"{service_base}{request.url.path}",
                                 content=await request.body(),
                                 headers=request.headers.raw,
                                 params=request.query_params,
@@ -52,7 +53,7 @@ with open("services.json") as f:
                             )
                         case "delete":
                             resp = await client.delete(
-                                f"{API_BASE_URL}{request.url.path}",
+                                f"{service_base}{request.url.path}",
                                 headers=request.headers.raw,
                                 params=request.query_params,
                             )
@@ -65,7 +66,7 @@ with open("services.json") as f:
                         case _:
                             resp = await client.request(
                                 request.method.upper(),
-                                f"{API_BASE_URL}{request.url.path}",
+                                f"{service_base}{request.url.path}",
                                 content=await request.body(),
                                 headers=request.headers.raw,
                                 params=request.query_params,
@@ -79,7 +80,7 @@ with open("services.json") as f:
                 return Response(
                     content=json.dumps(
                         {
-                            "message": f"Proxying {request.method.upper()} {request.url.path} to {API_BASE_URL}"
+                            "message": f"Proxying {request.method.upper()} {request.url.path} to {service_base}"
                         }
                     ),
                     media_type="application/json",
